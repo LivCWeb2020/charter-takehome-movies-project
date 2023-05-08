@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { getMovieDetails } from "../services/movieService";
 import '../styles/MovieDetails.css';
@@ -23,6 +23,18 @@ export default function MovieDetailsComponent() {
         fetchData();
     }, [id]);
 
+    // Memoize genre tags
+    const genreTags = useMemo(() => {
+        return movie.genres?.map(genre => (
+            <span key={genre} className="movie-details__genre">{genre}</span>
+        ));
+    }, [movie.genres]);
+
+    // Memoize top cast
+    const renderTopCast = useCallback(() => {
+        return movie.topCast?.map((performer, idx) => performer.name).join(", ");
+    }, [movie.topCast]);
+
 
     return (
         <>
@@ -39,10 +51,7 @@ export default function MovieDetailsComponent() {
                                 <h1 className="movie-details__title">{movie.title}</h1>
 
                                 <div className="movie-details__genres">
-                                    {movie.genres?.map(genre => (
-                                        <span key={genre} className="movie-details__genre">{genre}</span>
-                                    ))}
-
+                                    {genreTags}
                                     <div className="movie-details__flex-wrapper">
                                         <div className="movie-details__duration">
                                             <FaClock />
@@ -67,7 +76,7 @@ export default function MovieDetailsComponent() {
 
                         <div className="movie-details__top-cast">
                             <h4 className="movie-details__details-title">Featured Cast</h4>
-                            <span className="movie-details__top-cast-text">{movie.topCast?.map((performer, idx) => performer.name).join(", ")}</span>
+                            <span className="movie-details__top-cast-text">{renderTopCast()}</span>
                         </div>
                     </div>
                 ) : (
