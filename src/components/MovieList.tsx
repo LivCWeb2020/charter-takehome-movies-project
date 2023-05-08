@@ -8,10 +8,13 @@ import { FaSpinner } from "react-icons/fa";
 
 export default function MovieList() {
     const [movies, setMovies] = useState<Movie[]>([]);
+    const [error, setError] = useState<string | null>(null);
     useEffect(() => {
         const fetchData = async () => {
             const movies = await getMovies();
-            console.log(movies)
+            if (movies.length === 0) {
+                setError('Sorry, something went wrong. Please try again later.');
+            }
             setMovies(movies);
         };
         fetchData();
@@ -82,7 +85,10 @@ export default function MovieList() {
                             <img src={getImageUrl(movie.id)} alt={movie.title} className="card__image" />
                             <p className="card__title" >{movie.title}</p>
                         </Link>
-                    )) : movies.length ? <p>No results found..</p> : <FaSpinner className="animate-spin" />
+                    )) : (<p className="message">
+                        {movies.length ? "No results found.." : error ? error : <FaSpinner className="animate-spin" />}
+                    </p>
+                    )
                 }
             </div>
         </div>
