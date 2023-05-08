@@ -1,5 +1,6 @@
-{ "homepage": "http://LivCWeb2020.github.io/charter-takehome-movies-project",
-  "name": "my-app",
+{ 
+  "homepage": "http://LivCWeb2020.github.io/charter-takehome-movies-project",
+  "name": "charter-takehome-movies-project",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
