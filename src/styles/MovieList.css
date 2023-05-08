@@ -90,17 +90,17 @@
 .card {
     position: relative;
     overflow: hidden;
-    border-radius: 0.6rem;
     box-shadow: 0 0 1rem rgba(0, 0, 0, 0.5);
     cursor: pointer;
     transition: box-shadow 0.3s ease-in-out;
+    border-radius: 0.6rem;
+    max-width: 290px;
 }
 
 .card__image {
     display: block;
     width: 100%;
     height: auto;
-    aspect-ratio: 16/9;
     object-fit: cover;
 }
 
