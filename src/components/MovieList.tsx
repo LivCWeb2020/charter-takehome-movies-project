@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { getMovies } from '../services/movieService';
 import '../styles/MovieList.css';
 import { AiFillCloseCircle, AiOutlineSearch } from 'react-icons/ai';
+import { FaSpinner } from "react-icons/fa";
 
 export interface Movie {
     id: string;
@@ -86,7 +87,7 @@ export default function MovieList() {
                             <img src={getImageUrl(movie.id)} alt={movie.title} className="card__image" />
                             <p className="card__title" >{movie.title}</p>
                         </Link>
-                    )) : movies.length ? <p>No results found..</p> : <p>Loading...</p>
+                    )) : movies.length ? <p>No results found..</p> : <FaSpinner className="animate-spin" />
                 }
             </div>
         </div>
