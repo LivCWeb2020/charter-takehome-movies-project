@@ -1,13 +1,15 @@
 <<<<<<< HEAD
-# Getting Started with Create React App
+# Charter Movie App Takehome
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Message for the team: I was having difficulty with the cors errors with the api calls, so I built my own version of the api and deployed with heroku. Then I started to get CORS errors using that. I have yet to find a work around, but once the cors issue is resolved I'll be able to swap out the api call and it should work just fine.
 
-## Available Scripts
+This is a simple movie application that allows users to search movies by genre and title. Built using React and Typescript.
 
-In the project directory, you can run:
+## Screenshots
+will update with screenshots one cors issue is resolved and details populate properly
 
-### `npm start`
+### To run
+-
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
