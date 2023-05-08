@@ -29,6 +29,7 @@ will update with screenshots one cors issue is resolved and details populate pro
 
 ### Contributers
 [Olivia Webster](https://github.com/oliviacweb)
+[Olivia's other Github](https://github.com/LivCWeb2020)
 
 
 
