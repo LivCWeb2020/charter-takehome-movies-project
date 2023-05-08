@@ -1,0 +1,182 @@
+.container {
+    margin: 0 auto;
+    padding: 2rem;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.menu__utils {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.title {
+    font-size: 2rem;
+    margin-top: 0;
+}
+
+
+/* Select Dropdown */
+.dropdown {
+    font-size: 16px;
+    color: #333;
+    line-height: 1.5;
+    padding: 8px 24px 8px 8px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    height: 40px;
+}
+
+/* Search */
+.search {
+    position: relative;
+    display: flex;
+    border-radius: 4px;
+    width: 100%;
+}
+
+.search__clear:hover {
+    color: #d02222;
+}
+
+
+.search__input {
+    font-size: 16px;
+    color: #333;
+    line-height: 1.5;
+    padding: 0 32px 0 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+    height: 40px;
+}
+
+.search__clear,
+.search__icon {
+    position: absolute;
+    right: 9px;
+    color: #afafaf;
+    z-index: 2;
+    height: 100%;
+    width: 1.2rem;
+    transition: color 0.15s ease-in-out;
+}
+
+.search__clear {
+    cursor: pointer;
+}
+
+/* Movie Grid */
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2.9rem;
+    justify-content: flex-start;
+    margin-bottom: 2rem;
+}
+
+.card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 0.6rem;
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.card__image {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+}
+
+.card__title {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 0.8rem;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.6);
+    font-size: 1rem;
+    font-weight: 600;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    margin: 0;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.card:hover>.card__title {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: auto;
+}
+
+.pagination__list {
+    display: flex;
+    gap: 0.25rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.pagination__item {
+    margin-right: 10px;
+}
+
+.pagination__link {
+    display: inline-block;
+    padding: 6px 9px;
+    background-color: #acacac;
+    border-radius: 5px;
+    border: none;
+    color: #333;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.pagination__link.selected,
+.pagination__link:hover {
+    background-color: #fff;
+}
+
+.message {
+    width: 100%;
+    text-align: center;
+    margin-top: 1rem;
+}
+
+@media screen and (min-width: 768px) {
+    .menu {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .menu__utils {
+        flex-direction: row;
+        gap: 1rem;
+    }
+
+    .message {
+        margin-top: 40vh;
+    }
+}
