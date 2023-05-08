@@ -27,7 +27,7 @@ will update with screenshots one cors issue is resolved and details populate pro
 - add more testing 
 - CI/CD
 
-### COntributers
+### Contributers
 [Olivia Webster](https://github.com/oliviacweb)
 
 
