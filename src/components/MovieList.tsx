@@ -45,6 +45,18 @@ export default function MovieList() {
         }
     });
 
+    // Pagination
+    const [currentPage, setCurrentPage] = useState<number>(1);
+    const [moviesPerPage] = useState<number>(15);
+
+    // Get current movies
+    const indexOfLastMovie = currentPage * moviesPerPage;
+    const indexOfFirstMovie = indexOfLastMovie - moviesPerPage;
+    const currentMovies = filteredMovies.slice(indexOfFirstMovie, indexOfLastMovie);
+
+    // Change page
+    const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
+
     return (
         <div className="container">
             <div className="menu">
