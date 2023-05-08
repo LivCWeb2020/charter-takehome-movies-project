@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # Charter Movie App Takehome
 
 Message for the team: I was having difficulty with the cors errors with the api calls, so I built my own version of the api based on data returned from Postman and deployed with heroku. Then I started to get CORS errors using that. I have yet to find a work around, but once the cors issue is resolved I'll be able to swap out the api endpoint and it should work just fine.
