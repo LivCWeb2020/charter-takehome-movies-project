@@ -51,13 +51,42 @@ export default function MovieDetails({ }: Props) {
     }, [id]);
 
     return (
-        <div>
-            <h2>
-                Movie ID: {movie.id}
-            </h2>
-            <button>
-                <Link to="/">Go Back</Link>
-            </button>
-        </div>
+        <>
+            <Link to="/" className="back-button">
+                <IoChevronBackCircle />
+            </Link>
+
+            <div className="movie-details">
+                <div className="movie-details__info" >
+                    <img src={imageUrl} alt={movie.title} className="movie-details__image" />
+                    {
+                        movie.title && (
+                            <div className="movie-details__content">
+                                <h1 className="movie-details__title">{movie.title}</h1>
+
+                                <div className="movie-details__genres">
+                                    {movie.genres?.map(genre => (
+                                        <span key={genre} className="movie-details__genre">{genre}</span>
+                                    ))}
+
+                                    <div className="movie-details__flex-wrapper">
+                                        <div className="movie-details__duration">
+                                            <FaClock />
+                                            <span className="movie-details__duration-text">{movie.duration / 60} min</span>
+                                        </div>
+                                        <div className="movie-details__release-date">
+                                            <FaCalendar />
+                                            <span className="movie-details__release-date-text">{movie.releaseYear}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        )
+                    }
+                </div>
+            </div>
+
+
+        </>
     );
 }
