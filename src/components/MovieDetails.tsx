@@ -40,6 +40,16 @@ export default function MovieDetails({ }: Props) {
         fetchData();
     }, []);
 
+    // Get image by id
+    const [imageUrl, setImageUrl] = useState<string>();
+    useEffect(() => {
+        try {
+            setImageUrl(require(`../images/${id}.jpeg`));
+        } catch (error) {
+            setImageUrl(require('../images/defaultImage.jpeg'));
+        }
+    }, [id]);
+
     return (
         <div>
             <h2>
