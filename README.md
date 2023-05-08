@@ -33,8 +33,8 @@ This is a simple movie application that allows users to search movies by genre a
 - CI/CD
 
 ### Contributers
-[Olivia Webster](https://github.com/oliviacweb)
-[Olivia's other Github](https://github.com/LivCWeb2020)
+- [Olivia Webster](https://github.com/oliviacweb)
+- [Olivia's other Github](https://github.com/LivCWeb2020)
 
 
 
