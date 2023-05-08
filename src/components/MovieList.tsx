@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { getMovies } from '../services/movieService';
+import '../styles/MovieList.css';
 
 export interface Movie {
     id: string;
@@ -27,20 +28,17 @@ export default function MovieList() {
     }
 
     return (
-        <div>
-            <h1>Movie List</h1>
-            {movies.map(movie => (
-                <div key={movie.id}>
-                    <h2>{movie.title}</h2>
-                    <ul>
-                        {movie.genres.map(genre => (
-                            <li key={genre}>{genre}</li>
-                        ))}
-                    </ul>
-                    <img src={getImageUrl(movie.id)} alt={movie.title} />
-                </div>
-            ))
-            }
+        <div className="container">
+            <h1 className="title">Movie List</h1>
+            <div className="grid">
+                {movies.map(movie => (
+                    <div key={movie.id} className="card">
+                        <img src={getImageUrl(movie.id)} alt={movie.title} className="card__image" />
+                        <p className="card__title" >{movie.title}</p>
+                    </div>
+                ))
+                }
+            </div>
         </div>
     );
 }
