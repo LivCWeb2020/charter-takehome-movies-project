@@ -4,7 +4,7 @@ import { getMovies } from '../services/movieService';
 import '../styles/MovieList.css';
 import { AiFillCloseCircle, AiOutlineSearch } from 'react-icons/ai';
 import { FaSpinner } from "react-icons/fa";
-import { getHeroImage } from "../utils/getImageUrl";
+import { getSmallImage } from "../utils/getImageUrl";
 
 
 export default function MovieList() {
@@ -41,7 +41,7 @@ export default function MovieList() {
 
     // Pagination
     const [currentPage, setCurrentPage] = useState<number>(1);
-    const [moviesPerPage] = useState<number>(15);
+    const [moviesPerPage] = useState<number>(12);
 
     // Get current movies
     const indexOfLastMovie = currentPage * moviesPerPage;
@@ -96,7 +96,7 @@ export default function MovieList() {
                 {filteredMovies.length > 0 ?
                     currentMovies.map(movie => (
                         <Link to={`/${movie.id}`} key={movie.id} className="card">
-                            <img src={getHeroImage(movie.id)} alt={movie.title} className="card__image" />
+                            <img src={getSmallImage(movie.id)} alt={movie.title} className="card__image" />
                             <p className="card__title" >{movie.title}</p>
                         </Link>
                     ))

@@ -45,6 +45,7 @@ export default function MovieDetailsComponent() {
             <div className="movie-details">
                 <div className="movie-details__info" >
                     <img src={getHeroImage(id as string)} alt={movie.title} className="movie-details__image" />
+
                     {
                         movie.title && (
                             <div className="movie-details__content">
