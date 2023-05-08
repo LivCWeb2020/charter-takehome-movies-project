@@ -84,9 +84,28 @@ export default function MovieDetails({ }: Props) {
                         )
                     }
                 </div>
+                {movie.title ? (
+                    <div className="movie-details__details">
+                        <h4 className="movie-details__details-title">Overview</h4>
+                        <p className="movie-details__description">
+                            {movie.description}
+                        </p>
+
+                        <div className="movie-details__top-cast">
+                            <h4 className="movie-details__details-title">Featured Cast</h4>
+                            <span className="movie-details__top-cast-text">{movie.topCast?.map((performer, idx) => performer.name).join(", ")}</span>
+                        </div>
+                    </div>
+                ) : (
+                    <div className="movie-details__details">
+                        <h4 className="movie-details__details-title">
+                            <FaSpinner
+                                className="animate-spin"
+                            />
+                        </h4>
+                    </div>
+                )}
             </div>
-
-
         </>
     );
 }
