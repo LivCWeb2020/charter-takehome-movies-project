@@ -17,6 +17,15 @@ export default function MovieList() {
         };
         fetchData();
     }, []);
+
+    function getImageUrl(id: string): string {
+        try {
+            return require(`../images/${id}.jpeg`);
+        } catch (error) {
+            return require('../images/defaultImage.jpeg');
+        }
+    }
+
     return (
         <div>
             <h1>Movie List</h1>
@@ -28,6 +37,7 @@ export default function MovieList() {
                             <li key={genre}>{genre}</li>
                         ))}
                     </ul>
+                    <img src={getImageUrl(movie.id)} alt={movie.title} />
                 </div>
             ))
             }
