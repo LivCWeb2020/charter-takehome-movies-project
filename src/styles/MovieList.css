@@ -3,15 +3,35 @@
     padding: 2rem;
 }
 
+.menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
 .title {
     font-size: 2rem;
     margin-top: 0;
 }
 
+.dropdown {
+    font-size: 16px;
+    color: #333;
+    line-height: 1.5;
+    padding: 8px 24px 8px 8px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    height: 40px;
+}
+
 .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    display: flex;
+    flex-wrap: wrap;
     gap: 2rem;
+    justify-content: space-evenly;
 }
 
 .card {
@@ -48,6 +68,6 @@
     transition: background-color 0.3s ease-in-out;
 }
 
-.card:hover > .card__title {
+.card:hover>.card__title {
     background-color: rgba(0, 0, 0, 0.8);
 }
