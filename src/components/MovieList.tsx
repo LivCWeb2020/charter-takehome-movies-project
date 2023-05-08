@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { getMovies } from '../services/movieService';
 import '../styles/MovieList.css';
+import { AiFillCloseCircle, AiOutlineSearch } from 'react-icons/ai';
 
 export interface Movie {
     id: string;
@@ -38,9 +39,9 @@ export default function MovieList() {
     const [search, setSearch] = useState<string>('');
     const filteredMovies = movies.filter(movie => {
         if (genre === 'All') {
-            return movie.title.toLowerCase().includes(search.toLowerCase());
+            return movie.title.toLowerCase().includes(search.trim().toLowerCase());
         } else {
-            return movie.genres.includes(genre) && movie.title.toLowerCase().includes(search.toLowerCase());
+            return movie.genres.includes(genre) && movie.title.toLowerCase().includes(search.trim().toLowerCase());
         }
     });
 
@@ -50,13 +51,23 @@ export default function MovieList() {
                 <h1 className="title">Movie List</h1>
                 <div className="menu__utils">
                     {/* Search bar */}
-                    <input
-                        className="search"
-                        type="text"
-                        placeholder="Search..."
-                        value={search}
-                        onChange={e => setSearch(e.target.value)}
-                    />
+                    <div className="search">
+                        <input
+                            type="text"
+                            className="search__input"
+                            placeholder="Search..."
+                            value={search}
+                            onChange={e => setSearch(e.target.value)}
+                        />
+
+                        {/* Clear search */}
+                        {search.length > 0 ?
+                            <AiFillCloseCircle className="search__clear" onClick={() => setSearch('')} />
+                            :
+                            <AiOutlineSearch className="search__icon" />
+                        }
+                    </div>
+
 
                     {/* Genre dropdown */}
                     <select className="dropdown" value={genre} onChange={e => setGenre(e.target.value)}>

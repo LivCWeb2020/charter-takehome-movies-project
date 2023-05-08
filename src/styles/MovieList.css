@@ -4,22 +4,22 @@
 }
 
 .menu {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     margin-bottom: 2rem;
 }
 
 .menu__utils {
     display: flex;
-    gap: 1rem;
+    flex-direction: column;
+    gap: 0.25rem;
 }
 
 .title {
     font-size: 2rem;
     margin-top: 0;
-    border-radius: 4px;
-    cursor: pointer;
+}
+
+.search__clear:hover {
+    color: #d02222;
 }
 
 .dropdown {
@@ -31,14 +31,41 @@
     border: 1px solid #ccc;
     border-radius: 4px;
     cursor: pointer;
+    width: 100%;
     height: 40px;
 }
 
-.search {
-    border-radius: 4px;
-    padding: 0 8px;
-    font-size: 14px;
+.search__input {
+    font-size: 16px;
+    color: #333;
     line-height: 1.5;
+    padding: 0 32px 0 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+    height: 40px;
+}
+
+.search__clear,
+.search__icon {
+    position: absolute;
+    right: 9px;
+    color: #afafaf;
+    z-index: 2;
+    height: 100%;
+    width: 1.2rem;
+    transition: color 0.15s ease-in-out;
+}
+
+.search__clear {
+    cursor: pointer;
+}
+
+.search {
+    position: relative;
+    display: flex;
+    border-radius: 4px;
+    width: 100%;
 }
 
 .grid {
@@ -84,4 +111,17 @@
 
 .card:hover>.card__title {
     background-color: rgba(0, 0, 0, 0.8);
+}
+
+@media screen and (min-width: 768px) {
+    .menu {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .menu__utils {
+        flex-direction: row;
+        gap: 1rem;
+    }
 }
