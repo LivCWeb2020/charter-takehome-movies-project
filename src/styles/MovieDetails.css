@@ -40,3 +40,54 @@
     position: relative;
     padding: 1rem 2rem;
 }
+
+.movie-details__title {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1.2rem;
+    line-height: 1.2;
+}
+
+.movie-details__genres {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+}
+
+.movie-details__genre {
+    background-color: #ffae30;
+    color: black;
+    font-weight: 800;
+    font-size: 0.9rem;
+    font-family: "Roboto", sans-serif;
+    padding: 0.2rem 0.5rem;
+    border-radius: 9px;
+}
+
+.movie-details__details {
+    padding: 0 2rem;
+    max-width: 800px;
+    margin-top: 1rem;
+}
+
+.movie-details__details-title {
+    margin-bottom: 0.4rem;
+}
+
+.movie-details__description {
+    margin-bottom: 0.8rem;
+}
+
+.movie-details__duration {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.movie-details__release-date {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+
