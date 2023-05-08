@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useMemo, useCallback } from 'react';
 import { Link } from "react-router-dom";
 import { getMovies } from '../services/movieService';
 import '../styles/MovieList.css';
@@ -27,15 +27,17 @@ export default function MovieList() {
         new Set(movies.flatMap(movie => movie.genres))
     );
 
-    // Filter movies by search
+    // Memoize filteredMovies
     const [search, setSearch] = useState<string>('');
-    const filteredMovies = movies.filter(movie => {
-        if (genre === 'All') {
-            return movie.title.toLowerCase().includes(search.trim().toLowerCase());
-        } else {
-            return movie.genres.includes(genre) && movie.title.toLowerCase().includes(search.trim().toLowerCase());
-        }
-    });
+    const filteredMovies = useMemo(() => {
+        return movies.filter(movie => {
+            if (genre === 'All') {
+                return movie.title.toLowerCase().includes(search.trim().toLowerCase());
+            } else {
+                return movie.genres.includes(genre) && movie.title.toLowerCase().includes(search.trim().toLowerCase());
+            }
+        });
+    }, [movies, genre, search]);
 
     // Pagination
     const [currentPage, setCurrentPage] = useState<number>(1);
@@ -47,7 +49,7 @@ export default function MovieList() {
     const currentMovies = filteredMovies.slice(indexOfFirstMovie, indexOfLastMovie);
 
     // Change page
-    const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
+    const paginate = useCallback((pageNumber: number) => setCurrentPage(pageNumber), []);
 
     return (
         <div className="container">
@@ -91,14 +93,18 @@ export default function MovieList() {
                 </div>
             </div>
             <div className="grid">
-                {currentMovies.length > 0 ?
+                {filteredMovies.length > 0 ?
                     currentMovies.map(movie => (
                         <Link to={`/${movie.id}`} key={movie.id} className="card">
                             <img src={getHeroImage(movie.id)} alt={movie.title} className="card__image" />
                             <p className="card__title" >{movie.title}</p>
                         </Link>
-                    )) : (<p className="message">
-                        {movies.length ? "No results found.." : error ? error : <FaSpinner className="animate-spin" />}
+                    ))
+                    :
+                    (<p className="message">
+                        {/* Display errors or loading spinner */}
+                        {movies.length ? "No results found.."
+                            : error ? error : <FaSpinner className="animate-spin" />}
                     </p>
                     )
                 }
