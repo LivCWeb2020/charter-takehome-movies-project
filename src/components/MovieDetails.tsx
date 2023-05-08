@@ -85,6 +85,7 @@ export default function MovieDetailsComponent() {
                         <h4 className="movie-details__details-title">
                             <FaSpinner
                                 className="animate-spin"
+                                data-testid="spinner"
                             />
                         </h4>
                     </div>
