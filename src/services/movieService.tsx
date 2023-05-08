@@ -9,13 +9,19 @@ export interface Movie {
 export interface MovieDetails {
     id: string;
     title: string;
+    description: string;
     genres: string[];
     duration: number;
     releaseDate: string;
     releaseYear: number;
-    topCast: string[];
+    topCast: Cast[];
     moods: string[];
 }
+
+interface Cast {
+    name: string;
+    characterName: string;
+  }
 
 async function getMovies(): Promise<Movie[]> {
     try {
