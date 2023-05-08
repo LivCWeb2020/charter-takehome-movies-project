@@ -1,0 +1,42 @@
+.movie-details__info {
+    position: relative;
+}
+
+.back-button {
+    font-size: 2rem;
+    position: absolute;
+    left: 16px;
+    top: 16px;
+    z-index: 2;
+    color: #d3d3d3;
+    transition: color 0.15s ease-in-out;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.back-button:hover {
+    color: white;
+}
+
+.movie-details__image {
+    width: 100%;
+    object-fit: cover;
+    object-position: top;
+    transition: transform 0.3s ease-in-out;
+    max-height: 60vh;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+}
+
+.movie-details__flex-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem;
+}
+
+.movie-details__content {
+    position: relative;
+    padding: 1rem 2rem;
+}
