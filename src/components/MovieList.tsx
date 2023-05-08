@@ -28,23 +28,44 @@ export default function MovieList() {
         }
     }
 
-    // Filter movies by either 'All' or specific genre
+    // Set genre
     const [genre, setGenre] = useState<string>('All');
-    const filteredMovies = genre === 'All' ? movies : movies.filter(movie => movie.genres.includes(genre));
     const genres = Array.from(
         new Set(movies.flatMap(movie => movie.genres))
     );
+
+    // Filter movies by search
+    const [search, setSearch] = useState<string>('');
+    const filteredMovies = movies.filter(movie => {
+        if (genre === 'All') {
+            return movie.title.toLowerCase().includes(search.toLowerCase());
+        } else {
+            return movie.genres.includes(genre) && movie.title.toLowerCase().includes(search.toLowerCase());
+        }
+    });
 
     return (
         <div className="container">
             <div className="menu">
                 <h1 className="title">Movie List</h1>
-                <select className="dropdown" value={genre} onChange={e => setGenre(e.target.value)}>
-                    <option value="All">All</option>
-                    {genres.map(genre => (
-                        <option key={genre} value={genre}>{genre}</option>
-                    ))}
-                </select>
+                <div className="menu__utils">
+                    {/* Search bar */}
+                    <input
+                        className="search"
+                        type="text"
+                        placeholder="Search..."
+                        value={search}
+                        onChange={e => setSearch(e.target.value)}
+                    />
+
+                    {/* Genre dropdown */}
+                    <select className="dropdown" value={genre} onChange={e => setGenre(e.target.value)}>
+                        <option value="All">All</option>
+                        {genres.map(genre => (
+                            <option key={genre} value={genre}>{genre}</option>
+                        ))}
+                    </select>
+                </div>
             </div>
             <div className="grid">
                 {filteredMovies.map(movie => (
