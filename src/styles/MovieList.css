@@ -10,9 +10,16 @@
     margin-bottom: 2rem;
 }
 
+.menu__utils {
+    display: flex;
+    gap: 1rem;
+}
+
 .title {
     font-size: 2rem;
     margin-top: 0;
+    border-radius: 4px;
+    cursor: pointer;
 }
 
 .dropdown {
@@ -25,6 +32,13 @@
     border-radius: 4px;
     cursor: pointer;
     height: 40px;
+}
+
+.search {
+    border-radius: 4px;
+    padding: 0 8px;
+    font-size: 14px;
+    line-height: 1.5;
 }
 
 .grid {
