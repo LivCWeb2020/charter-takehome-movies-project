@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/charter-takehome-movies-project/static/css/main.2e1bc2ae.css",
-    "main.js": "/charter-takehome-movies-project/static/js/main.0faf7d67.js",
+    "main.css": "/charter-takehome-movies-project/static/css/main.6eb62e1c.css",
+    "main.js": "/charter-takehome-movies-project/static/js/main.40796e77.js",
     "static/js/787.57b8066e.chunk.js": "/charter-takehome-movies-project/static/js/787.57b8066e.chunk.js",
     "static/media/SP012010760000.jpeg": "/charter-takehome-movies-project/static/media/SP012010760000.0b0a29e85823477e4fd3.jpeg",
     "static/media/SP015413280000.jpeg": "/charter-takehome-movies-project/static/media/SP015413280000.217e47b8283b69423bc2.jpeg",
@@ -38,12 +38,12 @@
     "static/media/SP013848680000.jpeg": "/charter-takehome-movies-project/static/media/SP013848680000.8705c2ac6d1842c9d85f.jpeg",
     "static/media/defaultImage.jpeg": "/charter-takehome-movies-project/static/media/defaultImage.746d2759b55b0cbc1b5e.jpeg",
     "index.html": "/charter-takehome-movies-project/index.html",
-    "main.2e1bc2ae.css.map": "/charter-takehome-movies-project/static/css/main.2e1bc2ae.css.map",
-    "main.0faf7d67.js.map": "/charter-takehome-movies-project/static/js/main.0faf7d67.js.map",
+    "main.6eb62e1c.css.map": "/charter-takehome-movies-project/static/css/main.6eb62e1c.css.map",
+    "main.40796e77.js.map": "/charter-takehome-movies-project/static/js/main.40796e77.js.map",
     "787.57b8066e.chunk.js.map": "/charter-takehome-movies-project/static/js/787.57b8066e.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.2e1bc2ae.css",
-    "static/js/main.0faf7d67.js"
+    "static/css/main.6eb62e1c.css",
+    "static/js/main.40796e77.js"
   ]
 }
