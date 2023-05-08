@@ -1,0 +1,53 @@
+.container {
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.title {
+    font-size: 2rem;
+    margin-top: 0;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 0.6rem;
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.card__image {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+}
+
+.card__title {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 0.8rem;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.6);
+    font-size: 1rem;
+    font-weight: 600;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    margin: 0;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.card:hover > .card__title {
+    background-color: rgba(0, 0, 0, 0.8);
+}
