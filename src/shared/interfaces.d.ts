@@ -2,9 +2,9 @@ interface Movie {
     id: string
     title: string
     genres: string[]
-  }
-  
-  interface MovieDetails {
+}
+
+interface MovieDetails {
     id: string
     title: string
     description: string
@@ -14,9 +14,9 @@ interface Movie {
     releaseYear: number
     topCast: Cast[]
     moods: string[]
-  }
-  
-  interface Cast {
+}
+
+interface Cast {
     name: string
     characterName: string
-  }
+}

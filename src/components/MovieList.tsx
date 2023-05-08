@@ -5,11 +5,6 @@ import '../styles/MovieList.css';
 import { AiFillCloseCircle, AiOutlineSearch } from 'react-icons/ai';
 import { FaSpinner } from "react-icons/fa";
 
-export interface Movie {
-    id: string;
-    title: string;
-    genres: string[];
-}
 
 export default function MovieList() {
     const [movies, setMovies] = useState<Movie[]>([]);

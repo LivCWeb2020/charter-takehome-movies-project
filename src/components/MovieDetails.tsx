@@ -5,27 +5,9 @@ import '../styles/MovieDetails.css';
 import { IoChevronBackCircle } from "react-icons/io5";
 import { FaCalendar, FaClock, FaSpinner } from "react-icons/fa";
 
-type Props = {};
-
-interface MovieDetails {
-    id: string;
-    title: string;
-    description: string;
-    genres: string[];
-    duration: number;
-    releaseDate: string;
-    releaseYear: number;
-    topCast: Cast[];
-    moods: string[];
-}
-
-interface Cast {
-    name: string;
-    characterName: string;
-}
 
 
-export default function MovieDetails({ }: Props) {
+export default function MovieDetailsComponent() {
     // Get movie ID from React Router params
     const { id } = useParams();
 
@@ -38,7 +20,7 @@ export default function MovieDetails({ }: Props) {
             console.log(movie)
         };
         fetchData();
-    }, []);
+    }, [id]);
 
     // Get image by id
     const [imageUrl, setImageUrl] = useState<string>();
