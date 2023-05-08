@@ -4,6 +4,7 @@
 ## Important Message to the Team
 I was having difficulty with the CORS errors with the api calls, they are inconsistent (sometimes api is called just fine and sometimes there's a CORS error). I haven't been able to figure out a way to fix this on my end and from what I understand it's something that needs to be adjusted on the backend. If nothing is showing up on the page it is due to the CORS error. 
 
+## About
 This is a simple movie application that allows users to search movies by genre and title. You can also click on individual films and see details about them. Built using React and Typescript.
 
 ## Screenshots
