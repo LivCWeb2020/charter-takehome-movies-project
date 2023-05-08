@@ -1,23 +1,50 @@
 import axios from 'axios';
 
 export interface Movie {
-  id: string;
-  title: string;
-  genres: string[];
+    id: string;
+    title: string;
+    genres: string[];
+}
+
+export interface MovieDetails {
+    id: string;
+    title: string;
+    genres: string[];
+    duration: number;
+    releaseDate: string;
+    releaseYear: number;
+    topCast: string[];
+    moods: string[];
 }
 
 async function getMovies(): Promise<Movie[]> {
-  try {
-    const response = await axios.get('https://movies-api1.herokuapp.com/api/movies' || '', {
-      headers: {
-        'Authorization': 'Api-Key q3MNxtfep8Gt'
-      }
-    });
+    try {
+        const response = await axios.get('https://movies-api1.herokuapp.com/api/movies' || '', {
+            headers: {
+                'Authorization': 'Api-Key q3MNxtfep8Gt'
+            }
+        });
 
-    return response.data.data;
-  } catch (error) {
-    return [];
-  }
+        return response.data.data;
+    } catch (error) {
+        return [];
+    }
 }
 
-export { getMovies };
+async function getMovieDetails(id: String): Promise<MovieDetails> {
+    try {
+        const response = await axios.get("https://movies-api1.herokuapp.com/api/movies" + `/${id}` || '', {
+            headers: {
+                'Authorization': 'Api-Key q3MNxtfep8Gt'
+            }
+        });
+        return response.data.data;
+    } catch (error) {
+        return {} as MovieDetails;
+    }
+}
+
+
+
+
+export { getMovies, getMovieDetails };
