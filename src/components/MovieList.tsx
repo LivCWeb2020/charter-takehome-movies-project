@@ -69,20 +69,28 @@ export default function MovieList() {
                             className="search__input"
                             placeholder="Search..."
                             value={search}
-                            onChange={e => setSearch(e.target.value)}
+                            onChange={e => {
+                                paginate(1);
+                                setSearch(e.target.value);
+                            }}
                         />
 
                         {/* Clear search */}
                         {search.length > 0 ?
-                            <AiFillCloseCircle className="search__clear" onClick={() => setSearch('')} />
+                            <AiFillCloseCircle className="search__clear" onClick={() => {
+                                paginate(1);
+                                setSearch('');
+                            }} />
                             :
                             <AiOutlineSearch className="search__icon" />
                         }
                     </div>
 
-
                     {/* Genre dropdown */}
-                    <select className="dropdown" value={genre} onChange={e => setGenre(e.target.value)}>
+                    <select className="dropdown" value={genre} onChange={e => {
+                        paginate(1);
+                        setGenre(e.target.value);
+                    }}>
                         <option value="All">All</option>
                         {genres.map(genre => (
                             <option key={genre} value={genre}>{genre}</option>
@@ -91,8 +99,8 @@ export default function MovieList() {
                 </div>
             </div>
             <div className="grid">
-                {filteredMovies.length > 0 ?
-                    filteredMovies.map(movie => (
+                {currentMovies.length > 0 ?
+                    currentMovies.map(movie => (
                         <Link to={`/${movie.id}`} key={movie.id} className="card">
                             <img src={getImageUrl(movie.id)} alt={movie.title} className="card__image" />
                             <p className="card__title" >{movie.title}</p>
@@ -103,6 +111,28 @@ export default function MovieList() {
                     )
                 }
             </div>
-        </div>
+            
+            {/* Pagination */}
+            <div className="pagination">
+                {movies.length > 0 && (
+                    <ul className="pagination__list">
+                        {Array.from({ length: Math.ceil(filteredMovies.length / moviesPerPage) }, (_, i) => i + 1).map(number => (
+                            <li key={number} className="pagination__item"
+                            >
+                                <button
+                                    className={
+                                        `pagination__link ${number === currentPage ? 'selected' : ''}`
+                                    }
+                                    onClick={() => paginate(number)}
+                                >
+                                    {number}
+                                </button>
+                            </li>
+                        ))}
+                    </ul>
+                )}
+            </div>
+        </div >
+
     );
 }
