@@ -4,6 +4,7 @@ import { getMovieDetails } from "../services/movieService";
 import '../styles/MovieDetails.css';
 import { IoChevronBackCircle } from "react-icons/io5";
 import { FaCalendar, FaClock, FaSpinner } from "react-icons/fa";
+import { getHeroImage } from "../utils/getImageUrl";
 
 
 
@@ -22,15 +23,6 @@ export default function MovieDetailsComponent() {
         fetchData();
     }, [id]);
 
-    // Get image by id
-    const [imageUrl, setImageUrl] = useState<string>();
-    useEffect(() => {
-        try {
-            setImageUrl(require(`../images/${id}.jpeg`));
-        } catch (error) {
-            setImageUrl(require('../images/defaultImage.jpeg'));
-        }
-    }, [id]);
 
     return (
         <>
@@ -40,7 +32,7 @@ export default function MovieDetailsComponent() {
 
             <div className="movie-details">
                 <div className="movie-details__info" >
-                    <img src={imageUrl} alt={movie.title} className="movie-details__image" />
+                    <img src={getHeroImage(id as string)} alt={movie.title} className="movie-details__image" />
                     {
                         movie.title && (
                             <div className="movie-details__content">

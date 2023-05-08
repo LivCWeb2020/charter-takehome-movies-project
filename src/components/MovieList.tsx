@@ -4,6 +4,7 @@ import { getMovies } from '../services/movieService';
 import '../styles/MovieList.css';
 import { AiFillCloseCircle, AiOutlineSearch } from 'react-icons/ai';
 import { FaSpinner } from "react-icons/fa";
+import { getHeroImage } from "../utils/getImageUrl";
 
 
 export default function MovieList() {
@@ -19,15 +20,6 @@ export default function MovieList() {
         };
         fetchData();
     }, []);
-
-    //Get image by ID
-    function getImageUrl(id: string): string {
-        try {
-            return require(`../images/${id}.jpeg`);
-        } catch (error) {
-            return require('../images/defaultImage.jpeg');
-        }
-    }
 
     // Set genre
     const [genre, setGenre] = useState<string>('All');
@@ -102,7 +94,7 @@ export default function MovieList() {
                 {currentMovies.length > 0 ?
                     currentMovies.map(movie => (
                         <Link to={`/${movie.id}`} key={movie.id} className="card">
-                            <img src={getImageUrl(movie.id)} alt={movie.title} className="card__image" />
+                            <img src={getHeroImage(movie.id)} alt={movie.title} className="card__image" />
                             <p className="card__title" >{movie.title}</p>
                         </Link>
                     )) : (<p className="message">
@@ -111,7 +103,7 @@ export default function MovieList() {
                     )
                 }
             </div>
-            
+
             {/* Pagination */}
             <div className="pagination">
                 {movies.length > 0 && (
