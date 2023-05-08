@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from "react-router-dom";
 import { getMovies } from '../services/movieService';
 import '../styles/MovieList.css';
 import { AiFillCloseCircle, AiOutlineSearch } from 'react-icons/ai';
@@ -79,12 +80,13 @@ export default function MovieList() {
                 </div>
             </div>
             <div className="grid">
-                {filteredMovies.map(movie => (
-                    <div key={movie.id} className="card">
-                        <img src={getImageUrl(movie.id)} alt={movie.title} className="card__image" />
-                        <p className="card__title" >{movie.title}</p>
-                    </div>
-                ))
+                {filteredMovies.length > 0 ?
+                    filteredMovies.map(movie => (
+                        <Link to={`/${movie.id}`} key={movie.id} className="card">
+                            <img src={getImageUrl(movie.id)} alt={movie.title} className="card__image" />
+                            <p className="card__title" >{movie.title}</p>
+                        </Link>
+                    )) : movies.length ? <p>No results found..</p> : <p>Loading...</p>
                 }
             </div>
         </div>
